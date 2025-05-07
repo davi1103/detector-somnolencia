@@ -1,0 +1,59 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Detector de Somnolencia</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Registro de Somnolencia</h1>
+        <div class="metrics">
+            <div class="card">
+                <p>Probabilidad Media</p>
+                <h2 id="avgProbability">0%</h2>
+            </div>
+            <div class="card">
+                <p>Eventos de medio peligro</p>
+                <h2 id="midRisk">0</h2>
+            </div>
+            <div class="card">
+                <p>Eventos de alto peligro</p>
+                <h2 id="highRisk">0</h2>
+            </div>
+            <div class="card">
+                <p>Tiempo registrado</p>
+                <h2 id="recordedTime">00:00:00</h2>
+            </div>
+        </div>
+
+        <canvas id="probabilityChart" width="600" height="300"></canvas>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Hora</th>
+                    <th>Duración</th>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Tipo de alerta</th>
+                </tr>
+            </thead>
+            <tbody id="eventTable">
+                <!-- Eventos se insertarán dinámicamente -->
+            </tbody>
+        </table>
+
+        <div class="actions">
+            <button id="stopBtn">Detener Detección</button>
+            <button id="exportBtn">Exportar Registros</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
