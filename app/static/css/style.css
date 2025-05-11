@@ -1,73 +1,108 @@
-/* style.css */
+/* General */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f8fb;
     margin: 0;
     padding: 0;
     color: #333;
+    transition: background 0.4s, color 0.4s;
 }
 
-.container, .dashboard {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+body.dark {
+    background-color: #121212;
+    color: #eee;
 }
 
-h1 {
+/* Barra superior */
+.navbar {
+    background-color: #003366;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Bienvenida (Index) */
+.welcome {
+    max-width: 900px;
+    margin: 60px auto;
+    background-color: #e6f0ff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
     color: #003366;
 }
 
-button {
-    padding: 10px 20px;
-    margin: 10px 5px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.welcome p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
 }
 
-button:hover {
-    background-color: #0056b3;
+/* Dashboard */
+.dashboard {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #003366;
+    margin-bottom: 30px;
+}
+
+.video-container {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .metrics {
     display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .card {
+    flex: 1 1 calc(33% - 10px);
     background-color: #e6f0ff;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
-    flex: 1;
-    margin: 0 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-canvas {
-    display: block;
-    margin: 20px auto;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.card h2 {
+    font-size: 1.8rem;
+    color: #003366;
 }
 
+/* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin-bottom: 30px;
 }
 
 th, td {
     border: 1px solid #ccc;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -76,7 +111,63 @@ thead {
     color: white;
 }
 
-.actions {
-    text-align: center;
-    margin-top: 20px;
+body.dark thead {
+    background-color: #222;
+    color: #eee;
+}
+
+/* Botones */
+button, .actions button {
+    padding: 12px 20px;
+    margin: 8px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Gráfico */
+canvas {
+    display: block;
+    margin: 0 auto 40px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .card {
+        flex: 1 1 100%;
+    }
+
+    .dashboard {
+        padding: 20px;
+    }
+
+    canvas {
+        width: 100% !important;
+    }
+}
+
+/* Dark mode toggle button */
+#toggleTheme {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 8px 14px;
+    background-color: #444;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 9999;
 }

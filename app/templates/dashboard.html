@@ -1,4 +1,3 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,24 +7,38 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+    <div class="navbar">
+        DETECTOR DE SOMNOLENCIA
+        <button id="toggleTheme" style="float: right; margin-right: 20px; background: none; border: none; color: white; font-size: 1rem; cursor: pointer;">🌙</button>
+    </div>
+
     <div class="dashboard">
         <h1>Registro de Somnolencia</h1>
+
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" id="videoStream" alt="Video en vivo" style="width: 100%; max-width: 640px; border-radius: 10px; margin: 20px auto; display: block;">
+        </div>
+
         <div class="metrics">
             <div class="card">
                 <p>Probabilidad Media</p>
                 <h2 id="avgProbability">0%</h2>
             </div>
             <div class="card">
-                <p>Eventos de medio peligro</p>
-                <h2 id="midRisk">0</h2>
-            </div>
-            <div class="card">
-                <p>Eventos de alto peligro</p>
-                <h2 id="highRisk">0</h2>
-            </div>
-            <div class="card">
                 <p>Tiempo registrado</p>
                 <h2 id="recordedTime">00:00:00</h2>
+            </div>
+            <div class="card">
+                <p>Parpadeos</p>
+                <h2 id="blinkCount">0</h2>
+            </div>
+            <div class="card">
+                <p>Microsueños</p>
+                <h2 id="microsleepCount">0</h2>
+            </div>
+            <div class="card">
+                <p>Bostezos</p>
+                <h2 id="yawnCount">0</h2>
             </div>
         </div>
 
@@ -39,7 +52,7 @@
                     <th>Duración</th>
                     <th>Riesgo</th>
                     <th>Probabilidad</th>
-                    <th>Tipo de alerta</th>
+                    <th>Tipo de evento</th>
                 </tr>
             </thead>
             <tbody id="eventTable">
@@ -48,8 +61,8 @@
         </table>
 
         <div class="actions">
-            <button id="stopBtn">Detener Detección</button>
-            <button id="exportBtn">Exportar Registros</button>
+            <button id="stopBtn">🛑 Detener Detección</button>
+            <button id="exportBtn">📥 Exportar Registros</button>
         </div>
     </div>
 

@@ -3,7 +3,7 @@ from typing import Tuple, Dict
 from .face_mesh_model import FaceMeshLandmarks
 from .face_mesh_drawer import FaceMeshDraw
 from .face_mesh_extractor import FaceMeshExtractor
-from detection.utils.rotation_utils import calcular_inclinacion_pitch
+from app.detection.utils.rotation_utils import calcular_inclinacion_pitch
 
 
 ###### ----------- Procesador central que coordina detección, extracción y visualización de la malla facial ------ ##########
